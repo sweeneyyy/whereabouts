@@ -2,6 +2,7 @@
 require('dotenv').config();
 var bodyParser = require('body-parser');
 var express = require('express');
+var request = require('request');
 var ejsLayouts = require('express-ejs-layouts');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
@@ -28,10 +29,42 @@ app.use(function(req, res, next){
 });
 
 //stub out home page route
+// app.get('/', function(req, res){
+//   // res.send('home page coming soon');
+//   res.render('home');
+// });
+
+
+
 app.get('/', function(req, res){
-  // res.send('home page coming soon');
-  res.render('home');
+  // request('http://www.google.com', function(error, response, body){
+  // if( !error && response.statusCode == 200){
+  //   res.send(body);
+  //   }
+  // });
+
+  var qs = {
+    q: 'homes',
+    key: process.env.API_KEY,
+    cx: '016375955783160959795:tc5heqhcbrg',
+    // imgType: 'photo',
+    searchType: 'image'
+  }
+
+  request({
+    url: 'https://www.googleapis.com/customsearch/v1?',
+    qs: qs 
+  }, function(error, response, body){
+    if(!error && response.statusCode == 200){
+      var dataObj = JSON.parse(body);
+      res.send(dataObj);
+      // res.render("results", {results:dataObj.Search});
+    }
+  });
+
 });
+
+
 
 // route for profile page
 app.get('/profile', isLoggedIn, function(req, res){
