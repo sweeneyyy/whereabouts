@@ -29,40 +29,40 @@ app.use(function(req, res, next){
 });
 
 //stub out home page route
-// app.get('/', function(req, res){
-//   // res.send('home page coming soon');
-//   res.render('home');
-// });
-
-
-
 app.get('/', function(req, res){
-  // request('http://www.google.com', function(error, response, body){
-  // if( !error && response.statusCode == 200){
-  //   res.send(body);
-  //   }
-  // });
-
-  var qs = {
-    q: 'homes',
-    key: process.env.API_KEY,
-    cx: '016375955783160959795:tc5heqhcbrg',
-    // imgType: 'photo',
-    searchType: 'image'
-  }
-
-  request({
-    url: 'https://www.googleapis.com/customsearch/v1?',
-    qs: qs 
-  }, function(error, response, body){
-    if(!error && response.statusCode == 200){
-      var dataObj = JSON.parse(body);
-      res.send(dataObj);
-      // res.render("results", {results:dataObj.Search});
-    }
-  });
-
+  // res.send('home page coming soon');
+  res.render('home');
 });
+
+
+
+// app.get('/', function(req, res){
+// //   // request('http://www.google.com', function(error, response, body){
+// //   // if( !error && response.statusCode == 200){
+// //   //   res.send(body);
+// //   //   }
+// //   // });
+
+//   var qs = {
+//     q: 'van life',
+//     key: process.env.API_KEY,
+//     cx: '016375955783160959795:tc5heqhcbrg',
+//     imgType: 'photo',
+//     searchType: 'image'
+//   }
+
+//   request({
+//     url: 'https://www.googleapis.com/customsearch/v1?',
+//     qs: qs 
+//   }, function(error, response, body){
+//     if(!error && response.statusCode == 200){
+//       var dataObj = JSON.parse(body);
+//       res.send(dataObj);
+//       // res.render("results", {results:dataObj.Search});
+//     }
+//   });
+
+// });
 
 
 
@@ -73,6 +73,9 @@ app.get('/profile', isLoggedIn, function(req, res){
 
 //inlcude controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/favorites', require('./controllers/favorites'));
+app.use('/notebooks', require('./controllers/notebooks'));
+app.use('/tags', require('./controllers/tags'));
 
 
 app.listen(process.env.PORT || 3000);
