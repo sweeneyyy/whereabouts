@@ -12,15 +12,18 @@ router.get('/all', function(req, res){
 
 
 //GET - display single tag with associated images
-
+router.get('/:id', function(req, res){
+  res.render('tags/single');
+});
 
 
 
 
 //POST - add new tag
+router.post('/', function(req, res){
 
 
-
+});
 
 
 

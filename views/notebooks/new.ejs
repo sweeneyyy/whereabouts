@@ -1,1 +1,14 @@
 <h2>Create New Notebook</h2>
+
+<form method="post" action="/notebooks">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" name="title" placeholder="title of this notebook" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <textarea name="content" class="form-control">
+    </textarea>
+  </div>
+  <input type="submit" name="Create Notebook" class="btn btn-success">
+</form>

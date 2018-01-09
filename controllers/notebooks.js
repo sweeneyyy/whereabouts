@@ -12,13 +12,17 @@ router.get('/all', function(req, res){
 
 
 //GET - display single notebook
+router.get('/:id', function(req, res){
+  res.render('notebooks/single');
+});
 
 
 
 
-
-//POST - add new notebook
-
+//Get - form to add new notebook
+router.get('/new', function(req, res){
+  res.send('new notebook form coming soon');
+});
 
 
 
@@ -30,7 +34,6 @@ router.get('/all', function(req, res){
 
 
 //PUT - edit notebook name and/or content
-
 
 
 
