@@ -1,1 +1,9 @@
 <h2>Search For Inspiration and Save Your Favorites</h2>
+
+<% results.forEach(function(items){ %>
+  <div class="container">
+      <img src="<%= items.link %>" class="img-responsive center-block img-rounded">
+        <button class="btn btn-xs btn-default center-block" type="submit">
+        <span class="glyphicon glyphicon-star"><span id="add"> Add to Favorites</span></span>
+  </div>
+<% }); %>

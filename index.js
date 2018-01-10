@@ -35,33 +35,6 @@ app.get('/', function(req, res){
 });
 
 
-// app.get('/', function(req, res){
-// //   // request('http://www.google.com', function(error, response, body){
-// //   // if( !error && response.statusCode == 200){
-// //   //   res.send(body);
-// //   //   }
-// //   // });
-
-//   var qs = {
-//     q: 'van life',
-//     key: process.env.API_KEY,
-//     cx: '016375955783160959795:tc5heqhcbrg',
-//     imgType: 'photo',
-//     searchType: 'image'
-//   }
-
-//   request({
-//     url: 'https://www.googleapis.com/customsearch/v1?',
-//     qs: qs 
-//   }, function(error, response, body){
-//     if(!error && response.statusCode == 200){
-//       var dataObj = JSON.parse(body);
-//       res.send(dataObj);
-//       // res.render("results", {results:dataObj.Search});
-//     }
-//   });
-
-// });
 
 
 // route for profile page
