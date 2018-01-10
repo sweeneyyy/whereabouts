@@ -7,12 +7,8 @@ var router = express.Router();
 router.get('/login', function(req, res){
   res.render('auth/login');
 });
-// POST - login route
-// router.post('/login', function(req, res){
-//   console.log('req.body is', req.body);
-//   res.send('login post route - coming soon');
-// });
 
+// POST - login route
 router.post('login', passport.authenticate('local', {
   successRedirect: '/profile', 
   successFlash: 'Login Successful!',

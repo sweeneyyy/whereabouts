@@ -4,10 +4,9 @@ var router = express.Router();
 
 
 //GET - display all favorite images page
-router.get('/all', function(req, res){
+router.get('/', function(req, res){
   res.render('favorites/all')
 });
-
 
 
 
@@ -18,20 +17,21 @@ router.get('/:id', function(req, res){
 
 
 
-
 //POST - add new image to favorites
 router.post('/', function(req, res){
   res.send('add to favorites route coming soon');
+  //TO DO add fav image to db
+  //redirect to favorites page
+
+  //catch to display any error messages
 });
-
-
 
 
 //DELETE - remove an image from favorites
-router.delete('/', function(req, res){
+router.delete('/:id', function(req, res){
+  console.log('Delete route ID = ', req.params.id);
   res.send('delete from favorites route coming soon');
 });
-
 
 
 

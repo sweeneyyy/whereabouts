@@ -35,13 +35,19 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    // classMethods: {
+    //   associate: function(models) {
+    //     // associations can be defined here
+    //   }
+    // }
   });
-
+  user.associate = function (models) {
+    models.user.hasMany(models.favorite);
+  };
+  user.associate = function (models) {
+    models.user.hasMany(models.notebook);
+  };
+  
   // prototype points to the parent so the function is attached
   // to the global user object instead of each user instance
   user.prototype.isValidPassword = function(passwordTyped){

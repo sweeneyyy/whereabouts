@@ -11,7 +11,6 @@ router.get('/', function(req, res){
 
 //GET - form to add new notebook
 router.get('/new', function(req, res){
-  // res.send('new notebook form coming soon');
   res.render('notebooks/new');
 });
 
@@ -22,17 +21,18 @@ router.get('/:id', function(req, res){
 });
 
 
-
-
 //DELETE - remove a notebook
-
-
+router.delete('/:id', function(req, res){
+  console.log('delete route ID = ', req.params.id);
+  res.send('delete notebook route coming soon');
+});
 
 
 
 //PUT - edit notebook name and/or content
-
-
+router.put('/:id', function(req, res){
+  res.send('edit notebook route coming soon');
+});
 
 
 

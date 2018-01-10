@@ -9,6 +9,11 @@ router.get('/', function(req, res){
 });
 
 
+//POST - add new tag
+router.post('/', function(req, res){
+  res.send('add new tag route coming soon');
+});
+
 
 //GET - display single tag with associated images
 router.get('/:id', function(req, res){
@@ -16,17 +21,11 @@ router.get('/:id', function(req, res){
 });
 
 
-
-//POST - add new tag
-router.post('/', function(req, res){
-
-
-});
-
-
-
 //DELETE - remove a tag
-
+router.delete('/:id', function(req, res){
+  console.log('Delete route ID = ', req.params.id);
+  res.send('delete tag route coming soon');
+});
 
 
 
