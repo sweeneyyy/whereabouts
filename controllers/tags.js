@@ -4,10 +4,9 @@ var router = express.Router();
 
 
 //GET - display all tags
-router.get('/all', function(req, res){
+router.get('/', function(req, res){
   res.render('tags/all');
 });
-
 
 
 
@@ -15,7 +14,6 @@ router.get('/all', function(req, res){
 router.get('/:id', function(req, res){
   res.render('tags/single');
 });
-
 
 
 
@@ -28,7 +26,6 @@ router.post('/', function(req, res){
 
 
 //DELETE - remove a tag
-
 
 
 

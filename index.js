@@ -64,13 +64,12 @@ app.get('/', function(req, res){
 // });
 
 
-
 // route for profile page
 app.get('/profile', isLoggedIn, function(req, res){
   res.render('profile');
 });
 
-//inlcude controllers
+//include controllers
 app.use('/auth', require('./controllers/auth'));
 app.use('/favorites', require('./controllers/favorites'));
 app.use('/notebooks', require('./controllers/notebooks'));
