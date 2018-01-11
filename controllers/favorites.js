@@ -2,13 +2,16 @@ var express = require('express');
 var request = require('request');
 var db = require('../models');
 var router = express.Router();
+var isLoggedIn = require('../middleware/isLoggedIn');
+var passport = require('../config/passportConfig');
+var session = require('express-session');
 
 
 //GET - display all favorite images page
 router.get('/', function(req, res){
-  db.favorite.findAll().then(function(favorite){
-    res.render('favorites/all', {favorite: favorite});
-    console.log(favorite.id);
+  db.favorite.findAll().then(function(favoriteFromDB){
+    res.render('favorites/all', {favoriteOnFrontEnd: favoriteFromDB});
+    // console.log(favorite.id);
   });
 });
 
@@ -40,17 +43,12 @@ router.get('/search', function(req, res){
 
 
 //POST - add new image to favorites
-router.post('/', function(req, res){
-  // res.send('add to favorites route coming soon');
-  //TO DO add fav image to db
-  // var favorite = { userId: req.user };
-  // console.log('favorite ', favorite);
-
-  db.favorite.create(req.body).then(function(createdFavorite){
-    include: [db.user]
-    //redirect to favorites page
-    res.redirect('/favorites');
-    //catch to display any error messages
+router.post('/', isLoggedIn, function(req, res){
+  db.favorite.create({
+    userId: req.user.id,
+    url: req.body.url
+  }).then(function(createdFav){
+     res.redirect('/favorites');
   }).catch(function(err){
     console.log("Uh oh error", err);
     res.send('Fail!');

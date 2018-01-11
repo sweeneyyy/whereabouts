@@ -9,7 +9,7 @@ router.get('/login', function(req, res){
 });
 
 // POST - login route
-router.post('login', passport.authenticate('local', {
+router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile', 
   successFlash: 'Login Successful!',
   failureRedirect: '/auth/login',
