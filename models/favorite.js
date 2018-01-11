@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var favorite = sequelize.define('favorite', {
-    url: DataTypes.TEXT
+    url: DataTypes.TEXT,
+    userId: DataTypes.INTEGER
   // }, {
     // classMethods: {
     //   associate: function(models) {
@@ -9,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     //   }
     // }
     });
+  
     favorite.associate = function (models) {
       models.favorite.belongsToMany(models.tag, { through: models.favorite_tag});
     };  

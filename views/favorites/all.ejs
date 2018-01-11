@@ -1,1 +1,11 @@
-<h2>See Favorites Here</h2>
+<div class="page-header">
+  <h2 class="text-center">See Favorites Here</h2>
+</div>
+
+<div class="container">
+  <% favorite.forEach(function(items) { %>
+  <img src="<%= items.link %>" class="img-responsive center-block img-rounded">
+  <% }); %>
+</div>
+
+

@@ -2,8 +2,11 @@
 
 <% results.forEach(function(items){ %>
   <div class="container">
+    <form method="POST" action="/favorites">
+      <input id="POST-url" hidden type="url" name="url" value="<%= items.link %>">
       <img src="<%= items.link %>" class="img-responsive center-block img-rounded">
-        <button class="btn btn-xs btn-default center-block" type="submit">
+      <button class="btn btn-xs btn-default center-block" type="submit">
         <span class="glyphicon glyphicon-star"><span id="add"> Add to Favorites</span></span>
+    </form>
   </div>
 <% }); %>

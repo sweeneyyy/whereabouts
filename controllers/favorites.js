@@ -6,7 +6,10 @@ var router = express.Router();
 
 //GET - display all favorite images page
 router.get('/', function(req, res){
-  res.render('favorites/all')
+  db.favorite.findAll().then(function(favorite){
+    res.render('favorites/all', {favorite: favorite});
+    console.log(favorite.id);
+  });
 });
 
 
@@ -36,21 +39,29 @@ router.get('/search', function(req, res){
 });
 
 
+//POST - add new image to favorites
+router.post('/', function(req, res){
+  // res.send('add to favorites route coming soon');
+  //TO DO add fav image to db
+  // var favorite = { userId: req.user };
+  // console.log('favorite ', favorite);
+
+  db.favorite.create(req.body).then(function(createdFavorite){
+    include: [db.user]
+    //redirect to favorites page
+    res.redirect('/favorites');
+    //catch to display any error messages
+  }).catch(function(err){
+    console.log("Uh oh error", err);
+    res.send('Fail!');
+  });
+});
+
+
 //GET - display single favorite and associated tags
 router.get('/:id', function(req, res){
   res.render('favorites/single');
 });
-
-
-//POST - add new image to favorites
-router.post('/', function(req, res){
-  res.send('add to favorites route coming soon');
-  //TO DO add fav image to db
-  //redirect to favorites page
-
-  //catch to display any error messages
-});
-
 
 //DELETE - remove an image from favorites
 router.delete('/:id', function(req, res){

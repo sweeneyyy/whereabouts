@@ -10,6 +10,7 @@ var passport = require('./config/passportConfig');
 var session = require('express-session');
 var app = express();
 
+
 //set up middleware
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -28,13 +29,12 @@ app.use(function(req, res, next){
   next();
 });
 
+
 //stub out home page route
 app.get('/', function(req, res){
   // res.send('home page coming soon');
   res.render('home');
 });
-
-
 
 
 // route for profile page
