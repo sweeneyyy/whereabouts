@@ -5,46 +5,49 @@ var isLoggedIn = require('../middleware/isLoggedIn');
 var passport = require('../config/passportConfig');
 var session = require('express-session');
 var tumblr = require('tumblr.js');
+var client = tumblr.createClient({ consumer_key: process.env.CONSUMER_KEY }); // Authenticate via API Key
 var router = express.Router();
 
 
 //GET - display all favorite images page
 router.get('/', function(req, res){
   db.favorite.findAll().then(function(favoriteFromDB){
-    res.render('favorites/all', {favoriteOnFrontEnd: favoriteFromDB});
+    res.render('favorites/all', { favoriteOnFrontEnd: favoriteFromDB });
   });
 });
 
-//GET - api call to pull in images to view and save as favorites
 
-// Authenticate via API Key
+// POST - api call to pull in images from user query to view/save as favorite
 router.get('/search', function(req, res){
-  
-  var client = tumblr.createClient({ 
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.API_KEY,
-    tag: 'vanlife',
-    limit: 12
-  });
+  var results = [];
 
- // Make the request
-// client.tagged('van life', { limit: 12 }, function (err, data) {
-
-
-  request({
-    url: 'https://api.tumblr.com/v2/tagged?',
-    client: client
-  }, function(error, response, body){
-    if(!error && response.statusCode == 200){
-      var dataObj = JSON.parse(body);
-      res.send(dataObj);
-      // res.render('favorites/search', {results:dataObj.items});
-    }
-  });
-
+    res.render('favorites/search', {results: results});
+ 
 
 });
+ 
+router.post('/search', function(req, res){
+  client.taggedPosts(req.body.searchTag, { limit: 12 }, function (err, data) {
+    // ...
+    // console.log(data[0].photos);
+    // res.send(data[0].photos);
+    var urlList = [];
 
+    data.forEach(function(item){
+      if(item.photos){
+        if(item.photos[0].original_size){
+          urlList.push(item.photos[0].original_size.url);
+        } else if(item.photos[0].alt_sizes) {
+          urlList.push(item.photos[0].alt_sizes[0].url);
+        }
+      }
+    })
+
+    res.render('favorites/search', {results: urlList});
+
+  });
+
+});
 
 
 //POST - add new image to favorites
