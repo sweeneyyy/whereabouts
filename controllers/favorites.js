@@ -17,20 +17,17 @@ router.get('/', function(req, res){
 });
 
 
-// POST - api call to pull in images from user query to view/save as favorite
 router.get('/search', function(req, res){
   var results = [];
 
-    res.render('favorites/search', {results: results});
- 
-
+  res.render('favorites/search', {results: results});
 });
- 
+
+// POST - api call to pull in images from user query to view/save as favorite
 router.post('/search', function(req, res){
   client.taggedPosts(req.body.searchTag, { limit: 12 }, function (err, data) {
-    // ...
     // console.log(data[0].photos);
-    // res.send(data[0].photos);
+    // res.send(data);
     var urlList = [];
 
     data.forEach(function(item){
@@ -38,10 +35,10 @@ router.post('/search', function(req, res){
         if(item.photos[0].original_size){
           urlList.push(item.photos[0].original_size.url);
         } else if(item.photos[0].alt_sizes) {
-          urlList.push(item.photos[0].alt_sizes[0].url);
+            urlList.push(item.photos[0].alt_sizes[0].url);
         }
       }
-    })
+    });
 
     res.render('favorites/search', {results: urlList});
 
