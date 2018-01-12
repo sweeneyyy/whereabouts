@@ -4,6 +4,7 @@ var db = require('../models');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var passport = require('../config/passportConfig');
 var session = require('express-session');
+var tumblr = require('tumblr.js');
 var router = express.Router();
 
 
@@ -15,29 +16,36 @@ router.get('/', function(req, res){
 });
 
 //GET - api call to pull in images to view and save as favorites
-router.get('/search', function(req, res){
 
-  var qs = {
-    q: 'puppies',
-    key: process.env.API_KEY,
-    cx: '016375955783160959795:tc5heqhcbrg',
-    imgType: 'photo',
-    imgSize: 'medium',
-    searchType: 'image'
-  }
+// Authenticate via API Key
+router.get('/search', function(req, res){
+  
+  var client = tumblr.createClient({ 
+    consumer_key: process.env.CONSUMER_KEY,
+    consumer_secret: process.env.API_KEY,
+    tag: 'vanlife',
+    limit: 12
+  });
+
+ // Make the request
+// client.tagged('van life', { limit: 12 }, function (err, data) {
+
 
   request({
-    url: 'https://www.googleapis.com/customsearch/v1?',
-    qs: qs 
+    url: 'https://api.tumblr.com/v2/tagged?',
+    client: client
   }, function(error, response, body){
     if(!error && response.statusCode == 200){
       var dataObj = JSON.parse(body);
-      // res.send(dataObj);
-      res.render('favorites/search', {results:dataObj.items});
+      res.send(dataObj);
+      // res.render('favorites/search', {results:dataObj.items});
     }
   });
 
+
 });
+
+
 
 //POST - add new image to favorites
 router.post('/', isLoggedIn, function(req, res){
