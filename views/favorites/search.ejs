@@ -1,4 +1,22 @@
 <h2>Search For Inspiration and Save Your Favorites</h2>
+<!-- <div class="container">
+<script>
+  (function() {
+    var cx = '016375955783160959795:tc5heqhcbrg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+<gcse:searchresults disableWebSearch="true"></gcse:searchresults>
+
+</div> -->
+
+
 
 <% results.forEach(function(items){ %>
   <div class="container">
@@ -7,6 +25,8 @@
       <img src="<%= items.link %>" class="img-responsive center-block img-rounded">
       <button class="btn btn-xs btn-default center-block" type="submit">
         <span class="glyphicon glyphicon-star"><span id="add"> Add to Favorites</span></span>
+      </button>
     </form>
   </div>
 <% }); %>
+

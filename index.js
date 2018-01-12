@@ -15,6 +15,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/public/'));
 app.use(session({    // session must be above passport and flash
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -24,15 +25,14 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next){
-  res.locals.currentUser = req.user;  // currentUser is a variable, can be defined differently
-  res.locals.alerts = req.flash();  // alert is a variable, can be defined differently
+  res.locals.currentUser = req.user;
+  res.locals.alerts = req.flash();  
   next();
 });
 
 
 //stub out home page route
 app.get('/', function(req, res){
-  // res.send('home page coming soon');
   res.render('home');
 });
 
