@@ -25,12 +25,27 @@ router.get('/search', function(req, res){
 
 // POST - api call to pull in images from user query to view/save as favorite
 router.post('/search', function(req, res){
-  client.taggedPosts(req.body.searchTag, { limit: 12 }, function (err, data) {
-    // console.log(data[4].image_permalink);
-    // res.send(data[4].image_permalink);
+
+  client.taggedPosts(req.body.searchTag, { feature_type: 'everything', before: 1423937583 }, function (err, data) {
+    
+    console.log(data[3].timestamp);
+    res.send(data);
  
+
+    // var beforeTimeStamp = [];
+
+    //   data.forEach(function(item){
+    //     if(item.timestamp)
+    // })
+
+  // var beforeTimeStamp = data[data.length - 1].timestamp;
+
+  // in the options for api call above check to see if front end is sending a `before` key in the body
+  // if they are then add that before timestamp, if not then get the first group of photos
+
+
   var urlList = [];
- 
+
      data.forEach(function(item){
        if(item.photos){
          if(item.photos[0].original_size){
@@ -41,7 +56,7 @@ router.post('/search', function(req, res){
        }
      })
  
-    res.render('favorites/search', {results: urlList});
+    // res.render('favorites/search', {results: urlList});
   });
 
 });
