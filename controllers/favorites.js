@@ -7,6 +7,8 @@ var session = require('express-session');
 var tumblr = require('tumblr.js');
 var client = tumblr.createClient({ consumer_key: process.env.CONSUMER_KEY }); // Authenticate via API Key
 var router = express.Router();
+var beforeTimeStamp;
+var searchTag;
 
 
 //GET - display all favorite images page
@@ -16,7 +18,7 @@ router.get('/', function(req, res){
   });
 });
 
-
+//GET - display search results on search page
 router.get('/search', function(req, res){
   var results = [];
 
@@ -25,25 +27,23 @@ router.get('/search', function(req, res){
 
 // POST - api call to pull in images from user query to view/save as favorite
 router.post('/search', function(req, res){
+  var options = {
+    feature_type: 'everything'
+  };
+  // check if the incoming searchTag matches the last searchTag and if a beforeTimeStamp exists
+  // if true, add the before key to the options for the API request so different results are received
+  if (req.body.searchTag === searchTag && beforeTimeStamp) {
+    options.before = beforeTimeStamp;
+  }
 
-  client.taggedPosts(req.body.searchTag, { feature_type: 'everything', before: 1423937583 }, function (err, data) {
-    
-    console.log(data[3].timestamp);
-    res.send(data);
- 
-
-    // var beforeTimeStamp = [];
-
-    //   data.forEach(function(item){
-    //     if(item.timestamp)
-    // })
-
-  // var beforeTimeStamp = data[data.length - 1].timestamp;
-
-  // in the options for api call above check to see if front end is sending a `before` key in the body
-  // if they are then add that before timestamp, if not then get the first group of photos
-
-
+  client.taggedPosts(req.body.searchTag, options, function (err, data) {
+    // keep these for next request
+    beforeTimeStamp = data[data.length - 1].timestamp;
+    searchTag = req.body.searchTag
+  
+    // console.log(beforeTimeStamp);
+    // res.send(data);
+      
   var urlList = [];
 
      data.forEach(function(item){
@@ -54,9 +54,9 @@ router.post('/search', function(req, res){
            urlList.push(item.photos[0].alt_sizes[0].url);
          }
        }
-     })
+     });
  
-    // res.render('favorites/search', {results: urlList});
+    res.render('favorites/search', {results: urlList});
   });
 
 });
