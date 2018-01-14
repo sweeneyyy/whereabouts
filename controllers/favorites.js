@@ -41,7 +41,7 @@ router.post('/search', function(req, res){
     beforeTimeStamp = data[data.length - 1].timestamp;
     searchTag = req.body.searchTag
   
-    // console.log(beforeTimeStamp);
+    console.log(data.post_url);
     // res.send(data);
       
   var urlList = [];
@@ -98,9 +98,6 @@ router.get('/:id', isLoggedIn, function(req, res){
     res.render('favorites/single', { favoriteOnFrontEnd: favoriteFromDB });
   });
 });
-
-
-
 
 
 
