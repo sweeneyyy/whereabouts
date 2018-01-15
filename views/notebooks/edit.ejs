@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h2 class="text-center">edit your notebook</h2>
+</div>
+
+<form class="edit-form" action="/notebooks/<%= notebookOnFrontEnd.id %>">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input id="newTitle" type="text" name="title" " class="form-control" value="<%= notebookOnFrontEnd.title %>">
+  </div>
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <textarea id="notebookContent" name="content" class="form-control" value="<%= notebookOnFrontEnd.content %>">
+    </textarea>
+  </div>
+  <input type="submit" class="btn btn-success">
+</form>
+
+<hr>
+
+<i class="glyphicon glyphicon-menu-left"><a href="/notebooks"></i>
+back to notebooks
+</a>

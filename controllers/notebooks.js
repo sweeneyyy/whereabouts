@@ -54,11 +54,36 @@ router.get('/:id', isLoggedIn, function(req, res){
   });
 });
 
+
+//GET - edit notebook page
+router.get('/edit/:id', function(req, res){
+  //TODO prepopulate notebook title and content
+  db.notebook.findOne({
+    where: { id: req.params.id },
+    include: [db.user]
+  }).then(function(notebookFromDB){
+    res.render('notebooks/edit', { notebookOnFrontEnd: notebookFromDB });
+  });
+});
+
 //PUT - edit notebook name and/or content
-router.put('/:id', isLoggedIn, function(req, res){
-  res.send('edit notebook route coming soon');
+router.put('/edit/:id', function(req, res){
+  console.log('put route ID = ', req.params.id);
+  db.notebook.findOne({
+    where: { id: req.body.id }
+  }).then(function(notebook){
+    notebook.title = req.body.title;
+    notebook.content = req.body.content;
+    notebook.save();
+  }).then(function(updatedNotebook){
+    res.send('notebook updated');
+  }).catch(function(err){
+    res.send(err);
+  });
 });
 
 
-
 module.exports = router;
+
+
+
