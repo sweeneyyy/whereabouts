@@ -1,19 +1,25 @@
 <div class="page-header">
-  <h2 class="text-center">your favorites</h2>
+  <h2 class="text-center">favorites</h2>
 </div>
 
 <div class="container">
+  <div class="row">
   <% favoriteOnFrontEnd.forEach(function(item) { %>
-  <img src="<%= item.url %>" class="img-responsive center-block img-rounded">
-    <span>
-      <i class="glyphicon glyphicon-search"><a href="/favorites/<%= item.id %>" class="view"></i>
-      view larger
-      </a>
-      <i class="glyphicon glyphicon-remove"><a href="/favorites/<%= item.id %>" class="delete-favorite"></i>
-     remove
-      </a>
-    </span>  
+    <div class="col-sm-3">
+      <img src="<%= item.url %>" class="img-responsive center-block img-rounded">
+        <span>
+          <i class="glyphicon glyphicon-search">
+            <a href="/favorites/<%= item.id %>" class="view"></i>
+              view larger
+            </a>
+          <i class="glyphicon glyphicon-remove">
+            <a href="/favorites/<%= item.id %>" class="delete-favorite"></i>
+              remove
+            </a>
+        </span>  
+    </div>
   <% }); %>
+  </div>
 </div>
 
 

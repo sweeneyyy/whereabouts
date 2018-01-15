@@ -1,4 +1,14 @@
 body {
   font-family: 'Quicksand', sans-serif;
+  padding-bottom: 70px;
+}
 
+#newNotebook {
+  display: block;
+  width: 250px;
+  margin: auto;
+}
+
+#footer {
+  padding: 20px;
 }

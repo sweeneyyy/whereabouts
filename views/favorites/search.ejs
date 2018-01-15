@@ -1,25 +1,30 @@
-<h2>Search For Inspiration and Save Your Favorites</h2>
-
 <div class="container">
-  <form method="POST" action="/favorites/search">
-    <input name="searchTag" placeholder="search inspiration">
-    <button type="submit">search</button>
-  </form>
+
+<div class="page-header">
+  <h2 class="text-center">search for inspiration</h2>
+</div>
+
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+    <form method="POST" action="/favorites/search">
+     <input name="searchTag" placeholder="search inspiration">
+      <button type="submit">search</button>
+    </form>
+  </div>
 </div>
 <br>
 
 
-<div class="container">
+<!-- <div class="container"> -->
   <div class="row">
     <% results.forEach(function(item){ %>
     <div class="col-sm-3">
       <form method="POST" action="/favorites">
         <input id="POST-url" hidden type="url" name="url" value="<%= item %>">
-          <img src="<%= item %>" class="img-responsive img-rounded">
+          <img src="<%= item %>" class="img-responsive img-rounded center-block">
             <button class="btn btn-xs btn-default center-block" type="submit">
               <span class="glyphicon glyphicon-star"><span id="add"> Add to Favorites</span></span>
             </button>
-            <a href="<%= item.post_url %>">tumblr post</a>
           <br>
       </form>
     </div>
