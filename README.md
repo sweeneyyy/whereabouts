@@ -1,5 +1,14 @@
 # whereabouts
 
+## Technical Requirements
+* Have at least 2 models - ideally a user model and one that represents the main functional idea for the app
+* Include sign up/log in functionality, with hashed passwords & an authorization flow
+* Incorporate at least one API
+* Have complete RESTful routes for at least one of your resources with GET, POST, PUT, and DELETE
+* Utilize an ORM to create a database table structure and interact with your relationally-stored data
+* Include wireframes designed during the planning process
+* Have semantically clean HTML and CSS
+
 ## Technologies Used
 * HTML, CSS, Javascript
 * Node.js
