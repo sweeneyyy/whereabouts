@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">whereabouts</a>
+      <a class="navbar-brand" href="/" id="homePage">whereabouts</a>
     </div>
 
     <!-- Define the links -->
@@ -17,23 +17,26 @@
         <!-- if no current user show them login-->
         <% if(!currentUser){ %>
         <li>
-          <a href="/auth/login">login</a>
+          <a href="/#about" class="navLinks">about</a>
         </li>
         <li>
-          <a href="/auth/signup">sign Up</a>
+          <a href="/auth/login" class="navLinks">login</a>
+        </li>
+        <li>
+          <a href="/auth/signup" class="navLinks">sign up</a>
         </li>
         <% } else { %>
         <li>
-          <a href="/favorites">favorites</a>
+          <a href="/favorites/search" class="navLinks">search</a>
         </li>
         <li>
-          <a href="/favorites/search">search</a>
+          <a href="/favorites" class="navLinks">favorites</a>
         </li>
         <li>
-          <a href="/notebooks">notebooks</a>
+          <a href="/notebooks" class="navLinks">notebooks</a>
         </li>
         <li>
-          <a href="/auth/logout">logout</a>
+          <a href="/auth/logout" class="navLinks">logout</a>
         </li>
         <% } %>
       </ul>

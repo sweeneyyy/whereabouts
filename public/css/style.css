@@ -1,6 +1,25 @@
 body {
   font-family: 'Quicksand', sans-serif;
+  text-align: center;
   padding-bottom: 70px;
+  background: #e3e5e8;
+}
+
+nav {
+  background: #fff;
+  color: solid-black;
+}
+
+.navLinks{
+  font-size: 20px;
+}
+
+#homePage {
+  font-size: 30px;
+
+}
+#homeImage {
+  /*height: 600px;*/
 }
 
 #newNotebook {
@@ -9,6 +28,16 @@ body {
   margin: auto;
 }
 
+#searchBox {
+  width: 300px;
+}
+
+
 #footer {
   padding: 20px;
+}
+
+#copyright, #github {
+  color: #32373d;
+;
 }
