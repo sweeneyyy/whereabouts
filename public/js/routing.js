@@ -18,15 +18,15 @@ $('.delete-notebook').click(function(e){
 $('.edit-form').click(function(e){
   e.preventDefault();
     $.ajax({
-      method: 'PUT',
       url: $(this).attr('action'),
+      method: 'PUT',
       // pass data in form of an object
       data: {
         title: $('#newTitle').val(),
         content: $('#notebookContent').val()
       }
       //if return successfully
-    }).success(function(data){
+    }).done(function(data){
       console.log('got to the promise!');
       window.location.href = '/notebooks/all';
     });// End AJAX

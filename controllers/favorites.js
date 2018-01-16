@@ -12,7 +12,7 @@ var searchTag;
 
 
 //GET - display all favorite images page
-router.get('/', function(req, res){
+router.get('/', isLoggedIn, function(req, res){
   db.favorite.findAll().then(function(favoriteFromDB){
     res.render('favorites/all', { favoriteOnFrontEnd: favoriteFromDB });
   });

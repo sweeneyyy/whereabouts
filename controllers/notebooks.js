@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 //GET - display all notebooks page
-router.get('/', function(req, res){
+router.get('/', isLoggedIn, function(req, res){
   db.notebook.findAll().then(function(notebookFromDB){
     res.render('notebooks/all', {notebookOnFrontEnd: notebookFromDB});
   });
@@ -56,7 +56,7 @@ router.get('/:id', isLoggedIn, function(req, res){
 
 
 //GET - edit notebook page
-router.get('/edit/:id', function(req, res){
+router.get('/edit/:id', isLoggedIn, function(req, res){
   //TODO prepopulate notebook title and content
   db.notebook.findOne({
     where: { id: req.params.id },
@@ -67,7 +67,7 @@ router.get('/edit/:id', function(req, res){
 });
 
 //PUT - edit notebook name and/or content
-router.put('/edit/:id', function(req, res){
+router.put('/edit/:id', isLoggedIn, function(req, res){
   console.log('put route ID = ', req.params.id);
   db.notebook.findOne({
     where: { id: req.body.id }
