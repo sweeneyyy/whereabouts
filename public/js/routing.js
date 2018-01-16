@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-console.log('hello from routing.js!');
-
 //DELETE a notebook
 $('.delete-notebook').click(function(e){
   e.preventDefault();
@@ -28,9 +26,9 @@ $('.edit-form').click(function(e){
       //if return successfully
     }).done(function(data){
       console.log('got to the promise!');
-      window.location.href = '/notebooks/all';
-    });// End AJAX
-});// End submit handler
+      window.location.href = '/notebooks';
+    });
+});
 
 
 //DELETE a favorite 

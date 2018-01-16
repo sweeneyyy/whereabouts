@@ -54,7 +54,6 @@ router.get('/:id', isLoggedIn, function(req, res){
   });
 });
 
-
 //GET - edit notebook page
 router.get('/edit/:id', isLoggedIn, function(req, res){
   //TODO prepopulate notebook title and content
@@ -70,7 +69,7 @@ router.get('/edit/:id', isLoggedIn, function(req, res){
 router.put('/edit/:id', isLoggedIn, function(req, res){
   console.log('put route ID = ', req.params.id);
   db.notebook.findOne({
-    where: { id: req.body.id }
+    where: { id: req.params.id }
   }).then(function(notebook){
     notebook.title = req.body.title;
     notebook.content = req.body.content;

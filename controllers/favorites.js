@@ -30,8 +30,8 @@ router.post('/search', function(req, res){
   var options = {
     feature_type: 'everything'
   };
-  // check if the incoming searchTag matches the last searchTag and if a beforeTimeStamp exists
-  // if true, add the before key to the options for the API request so different results are received
+  // check if incoming searchTag matches last searchTag and if a beforeTimeStamp exists
+  // if true, add before key to the options for the API request so different results are received
   if (req.body.searchTag === searchTag && beforeTimeStamp) {
     options.before = beforeTimeStamp;
   }
@@ -40,9 +40,7 @@ router.post('/search', function(req, res){
     // keep these for next request
     beforeTimeStamp = data[data.length - 1].timestamp;
     searchTag = req.body.searchTag
-  
-    // console.log(data.post_url);
-    // res.send(data);
+      // res.send(data);
       
   var urlList = [];
 
