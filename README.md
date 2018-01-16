@@ -10,10 +10,10 @@
 
 ## Approach Taken
 Started by laying out the steps in Trello - labeled by sprint
-!(https://i.imgur.com/G254tc6m.png)
+![trello_sprint1](https://user-images.githubusercontent.com/30785832/34971612-96fdf746-fa30-11e7-9e7d-46395a4bdf9a.jpg)
 
 Then created wireframes with draw.io
-
+![wireframe](https://user-images.githubusercontent.com/30785832/34971640-c0460594-fa30-11e7-883f-80db10cc37e9.png)
 
 ## Issues
 
