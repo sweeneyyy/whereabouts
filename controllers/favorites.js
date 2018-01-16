@@ -19,14 +19,14 @@ router.get('/', isLoggedIn, function(req, res){
 });
 
 //GET - display search results on search page
-router.get('/search', isLoggedIn, function(req, res){
+router.get('/search', function(req, res){
   var results = [];
 
   res.render('favorites/search', {results: results});
 });
 
 // POST - api call to pull in images from user query to view/save as favorite
-router.post('/search', isLoggedIn, function(req, res){
+router.post('/search', function(req, res){
   var options = {
     feature_type: 'everything'
   };
@@ -41,7 +41,7 @@ router.post('/search', isLoggedIn, function(req, res){
     beforeTimeStamp = data[data.length - 1].timestamp;
     searchTag = req.body.searchTag
   
-    console.log(data.post_url);
+    // console.log(data.post_url);
     // res.send(data);
       
   var urlList = [];

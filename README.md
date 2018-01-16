@@ -6,6 +6,7 @@
 * Express
 * PostgreSQL, Sequelize
 * Bootstrap
+* Live site on [Heroku](https://whereabouts-js.herokuapp.com/)
 
 
 ## Approach Taken
