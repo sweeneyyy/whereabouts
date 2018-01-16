@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h2 class="text-center">favorites</h2>
+  <h1 class="text-center">favorites</h1>
 </div>
 
 <div class="container">
@@ -7,6 +7,7 @@
   <% favoriteOnFrontEnd.forEach(function(item) { %>
     <div class="col-sm-3">
       <img src="<%= item.url %>" class="img-responsive center-block img-rounded">
+      <br>
         <span>
           <i class="glyphicon glyphicon-search">
             <a href="/favorites/<%= item.id %>" class="view"></i>
@@ -17,6 +18,7 @@
               remove
             </a>
         </span>  
+        <br>
     </div>
   <% }); %>
   </div>

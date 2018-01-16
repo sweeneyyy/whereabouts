@@ -1,11 +1,11 @@
 <div class="container">
   <div class="page-header">
-   <h2 class="text-center">notebooks</h2>
+   <h1 class="text-center">notebooks</h1>
   </div>
 
   <div class="row">
     <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-  <a href="/notebooks/new" class="btn btn-sm btn-default" id="newNotebook"> create new notebook</a>
+  <a href="/notebooks/new" class="btn btn-sm btn-default" id="newNotebook">new notebook</a>
     </div>
   </div>
   <br>
@@ -14,15 +14,15 @@
     <div class="pull-right">
       <span>
         <i class="glyphicon glyphicon-pencil">
-          <a href="/notebooks/edit/<%= item.id %>" class="edit">
+          <a href="/notebooks/edit/<%= item.id %>" class="edit" id="editNotebook">
           </i>
-        edit
+        EDIT
       </a>
     <hr>
       <i class="glyphicon glyphicon-remove">
-        <a href="/notebooks/<%= item.id %>" class="delete-notebook">
+        <a href="/notebooks/<%= item.id %>" class="delete-notebook" id="delNotebook">
         </i>
-        delete
+        DELETE
         </a>
       </span>
     </div>

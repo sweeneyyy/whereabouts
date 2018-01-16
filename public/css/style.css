@@ -16,10 +16,24 @@ nav {
 
 #homePage {
   font-size: 30px;
-
 }
-#homeImage {
-  /*height: 600px;*/
+
+.thumbnail {
+  padding: 20px;
+}
+
+.howToBtn {
+  padding: 10px;
+  margin: 10px;
+}
+
+#add {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.well {
+  border-radius: 30px;
+  text-align: left;
 }
 
 #newNotebook {
@@ -30,6 +44,7 @@ nav {
 
 #searchBox {
   width: 300px;
+  padding: 5px;
 }
 
 
@@ -37,7 +52,7 @@ nav {
   padding: 20px;
 }
 
-#copyright, #github {
+#copyright, #github, #delNotebook, #editNotebook {
   color: #32373d;
 ;
 }
