@@ -25,7 +25,6 @@ router.get('/signup', function(req, res){
 // POST - signup route
 router.post('/signup', function(req, res, next){
   console.log('req.body is', req.body);
-  // res.send('signup post route coming soon')
   db.user.findOrCreate({
     where: { email: req.body.email },
     defaults: {
@@ -36,14 +35,14 @@ router.post('/signup', function(req, res, next){
     }
   }).spread(function(user, wasCreated){
     if(wasCreated){
-      //Good job, you didn't try to make a duplicate!
+      //no duplicate attempted
       passport.authenticate('local', {
         successRedirect: '/',
         successFlash: 'Succesfully logged in'
       })(req, res, next);
     }
     else{
-      //Bad job, you tried to sign up when you should login
+      //already signed up, need to login instead
       req.flash('error', 'Email already exists');
       res.redirect('/auth/login');
     }

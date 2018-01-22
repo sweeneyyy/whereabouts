@@ -2,7 +2,6 @@ var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var db = require('../models');
 
-
 passport.serializeUser(function(user, callback){
   callback(null, user.id);
 });
@@ -14,7 +13,6 @@ passport.deserializeUser(function(id, callback){
     callback(err, null);
   });
 });
-
 
 
 passport.use(new localStrategy({

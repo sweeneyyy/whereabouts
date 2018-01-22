@@ -10,7 +10,6 @@ var router = express.Router();
 var beforeTimeStamp;
 var searchTag;
 
-
 //GET - display all favorite images page
 router.get('/', isLoggedIn, function(req, res){
   db.favorite.findAll().then(function(favoriteFromDB){
@@ -40,7 +39,6 @@ router.post('/search', function(req, res){
     // keep these for next request
     beforeTimeStamp = data[data.length - 1].timestamp;
     searchTag = req.body.searchTag
-      // res.send(data);
       
   var urlList = [];
 
@@ -66,7 +64,7 @@ router.post('/', isLoggedIn, function(req, res){
     userId: req.user.id,
     url: req.body.url
   }).then(function(createdFav){
-     res.redirect('/favorites');
+    res.redirect('/favorites');
   }).catch(function(err){
     console.log("Uh oh error", err);
     res.send('Fail!');
@@ -75,11 +73,9 @@ router.post('/', isLoggedIn, function(req, res){
 
 //DELETE - remove an image from favorites
 router.delete('/:id', isLoggedIn, function(req, res){
-  console.log('delete route ID = ', req.params.id);
   db.favorite.destroy({
     where: { id: req.params.id }
   }).then(function(deleted){
-    console.log('Deleted = ', deleted);
     res.send('success');
   }).catch(function(err){
     console.log('An error happened', err);

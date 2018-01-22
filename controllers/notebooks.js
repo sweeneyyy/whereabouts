@@ -32,11 +32,9 @@ router.post('/', isLoggedIn, function(req,res){
 
 //DELETE - remove a notebook
 router.delete('/:id', isLoggedIn, function(req, res){
-  console.log('delete route ID = ', req.params.id);
   db.notebook.destroy({
     where: { id: req.params.id }
   }).then(function(deleted){
-    console.log('deleted = ', deleted);
     res.send('success');
   }).catch(function(err){
     console.log('An error happened', err);

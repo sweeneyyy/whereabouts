@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public/'));
-app.use(session({    // session must be above passport and flash
+app.use(session({    
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
@@ -31,18 +31,18 @@ app.use(function(req, res, next){
 });
 
 
-//stub out home page route
+//home page route
 app.get('/', function(req, res){
   res.render('home');
 });
 
 
-// route for profile page
+//profile page
 app.get('/profile', isLoggedIn, function(req, res){
   res.render('profile');
 });
 
-//include controllers
+//controllers
 app.use('/auth', require('./controllers/auth'));
 app.use('/favorites', require('./controllers/favorites'));
 app.use('/notebooks', require('./controllers/notebooks'));

@@ -1,35 +1,30 @@
 <div class="container">
-
-<div class="page-header">
-  <h1 class="text-center">inspiration</h1>
-</div>
-
-<div class="row">
-  <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-    <form method="POST" action="/favorites/search">
-     <input id="searchBox" name="searchTag" placeholder="road trip, vanlife, puppies">
-      <button type="submit">search</button>
-    </form>
+  <div class="page-header">
+    <h1 class="text-center">inspiration</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+      <form method="POST" action="/favorites/search">
+       <input id="searchBox" name="searchTag" placeholder="road trip, vanlife, puppies">
+        <button type="submit">search</button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <% results.forEach(function(item){ %>
+    <div class="col-sm-3">
+      <form method="POST" action="/favorites">
+        <input id="POST-url" hidden type="url" name="url" value="<%= item %>">
+          <img src="<%= item %>" class="img-responsive img-rounded center-block">
+          <br>
+            <button class="btn btn-xs btn-default center-block" type="submit">
+              <span class="glyphicon glyphicon-star"><span id="add"> add to favorites</span></span>
+            </button>
+          <br>
+      </form>
+    </div>
+    <% }); %>
   </div>
 </div>
-<br>
-
-<div class="row">
-  <% results.forEach(function(item){ %>
-  <div class="col-sm-3">
-    <form method="POST" action="/favorites">
-      <input id="POST-url" hidden type="url" name="url" value="<%= item %>">
-        <img src="<%= item %>" class="img-responsive img-rounded center-block">
-        <br>
-          <button class="btn btn-xs btn-default center-block" type="submit">
-            <span class="glyphicon glyphicon-star"><span id="add"> add to favorites</span></span>
-          </button>
-        <br>
-    </form>
-  </div>
-  <% }); %>
-</div>
-
-</div>
-
 <br>

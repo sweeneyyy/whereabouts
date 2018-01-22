@@ -18,7 +18,6 @@ $('.edit-form').click(function(e){
     $.ajax({
       url: $(this).attr('action'),
       method: 'PUT',
-      // pass data in form of an object
       data: {
         title: $('#newTitle').val(),
         content: $('#notebookContent').val()
@@ -44,4 +43,4 @@ $('.delete-favorite').click(function(e){
 });
 
 
-});//end document ready
+});
