@@ -12,7 +12,10 @@ var searchTag;
 
 //GET - display all favorite images page
 router.get('/', isLoggedIn, function(req, res){
-  db.favorite.findAll().then(function(favoriteFromDB){
+  db.favorite.findAll({
+    where: {userId: req.user.id},
+    include: [db.user]
+  }).then(function(favoriteFromDB){
     res.render('favorites/all', { favoriteOnFrontEnd: favoriteFromDB });
   });
 });

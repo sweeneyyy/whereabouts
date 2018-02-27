@@ -6,7 +6,10 @@ var router = express.Router();
 
 //GET - display all notebooks page
 router.get('/', isLoggedIn, function(req, res){
-  db.notebook.findAll().then(function(notebookFromDB){
+  db.notebook.findAll({
+    where: {userId: req.user.id},
+    include: [db.user]
+  }).then(function(notebookFromDB){
     res.render('notebooks/all', {notebookOnFrontEnd: notebookFromDB});
   });
 });

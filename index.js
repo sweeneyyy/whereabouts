@@ -10,7 +10,6 @@ var passport = require('./config/passportConfig');
 var session = require('express-session');
 var app = express();
 
-
 //set up middleware
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -30,12 +29,10 @@ app.use(function(req, res, next){
   next();
 });
 
-
 //home page route
 app.get('/', function(req, res){
   res.render('home');
 });
-
 
 //profile page
 app.get('/profile', isLoggedIn, function(req, res){
@@ -47,7 +44,6 @@ app.use('/auth', require('./controllers/auth'));
 app.use('/favorites', require('./controllers/favorites'));
 app.use('/notebooks', require('./controllers/notebooks'));
 app.use('/tags', require('./controllers/tags'));
-
 
 app.listen(process.env.PORT || 3000);
 
