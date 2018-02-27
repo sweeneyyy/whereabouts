@@ -40,6 +40,10 @@ nav {
   border-radius: 20px;
   border-top: none;
   background-color: #FFF;
+  padding-top: 30px;
+}
+.panel-footer a {
+  text-decoration: none;
 }
 
 #newNotebook {
@@ -48,9 +52,21 @@ nav {
   margin: auto;
 }
 
+#notebook-title a {
+  color: #32373d;
+  text-transform: uppercase;
+}
+
 #searchBox {
   width: 300px;
   padding: 5px;
+}
+
+.view, .delete-favorite {
+  color: #32373d;
+}
+.view a {
+  text-decoration: none;
 }
 
 #footer {
@@ -59,5 +75,4 @@ nav {
 
 #copyright, #github, #delNotebook, #editNotebook {
   color: #32373d;
-;
 }
