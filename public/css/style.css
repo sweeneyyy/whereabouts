@@ -31,9 +31,15 @@ nav {
   font-family: 'Quicksand', sans-serif;
 }
 
-.well {
-  border-radius: 30px;
-  text-align: left;
+.panel {
+  border-radius: 20px;
+  /*text-align: left;*/
+}
+
+.panel-footer {
+  border-radius: 20px;
+  border-top: none;
+  background-color: #FFF;
 }
 
 #newNotebook {

@@ -3,7 +3,6 @@ var db = require('../models');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var router = express.Router();
 
-
 //GET - display all notebooks page
 router.get('/', isLoggedIn, function(req, res){
   db.notebook.findAll({
@@ -81,7 +80,6 @@ router.put('/edit/:id', isLoggedIn, function(req, res){
     res.send(err);
   });
 });
-
 
 module.exports = router;
 

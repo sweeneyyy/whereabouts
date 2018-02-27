@@ -54,12 +54,10 @@ router.post('/search', function(req, res){
          }
        }
      });
- 
     res.render('favorites/search', {results: urlList});
   });
 
 });
-
 
 //POST - add new image to favorites
 router.post('/', isLoggedIn, function(req, res){
@@ -95,7 +93,5 @@ router.get('/:id', isLoggedIn, function(req, res){
     res.render('favorites/single', { favoriteOnFrontEnd: favoriteFromDB });
   });
 });
-
-
 
 module.exports = router;
