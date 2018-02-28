@@ -54,6 +54,7 @@ router.post('/search', function(req, res){
          }
        }
      });
+    // res.send(data)
     res.render('favorites/search', {results: urlList});
   });
 
