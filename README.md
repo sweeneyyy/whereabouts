@@ -34,7 +34,7 @@ Created wireframes with draw.io
 
 ## Home Page
 ![homepage_1](https://user-images.githubusercontent.com/30785832/36809444-f5f303e0-1c95-11e8-9c6a-89f806cb7577.png)
-![homepage_2](https://user-images.githubusercontent.com/30785832/36809516-247560be-1c96-11e8-9cc2-76bf08b5a96b.png)
+![homepage_2](https://user-images.githubusercontent.com/30785832/36809862-35cb043a-1c97-11e8-8e18-598bd81666eb.png)
 
 ## Sample Search Page
 ![search_page](https://user-images.githubusercontent.com/30785832/36809553-37b10dcc-1c96-11e8-85b4-f95039ef77f9.png)
