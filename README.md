@@ -17,6 +17,9 @@
 * Bootstrap
 * Live site on [Heroku](https://whereabouts-js.herokuapp.com/)
 
+## User Stories
+* When you are thinking of ideas for your next travel adventure and would like to create a vision board to get excited and inpsired. The search uses the Tumblr API by tagged posts.
+* You already have a trip planned and would like to save ideas, packing lists, reminders in your personal notebooks.
 
 ## Approach Taken
 Planned out the steps in Trello - labeled by sprint
@@ -28,6 +31,13 @@ Created wireframes with draw.io
 ![wireframe](https://user-images.githubusercontent.com/30785832/34971640-c0460594-fa30-11e7-883f-80db10cc37e9.png)
 
 ![wireframe_2](https://user-images.githubusercontent.com/30785832/34972066-e750cea0-fa33-11e7-8d9d-02ad1da15cd9.png)
+
+## Home Page
+![homepage_1](https://user-images.githubusercontent.com/30785832/36809444-f5f303e0-1c95-11e8-9c6a-89f806cb7577.png)
+![homepage_2](https://user-images.githubusercontent.com/30785832/36809516-247560be-1c96-11e8-9cc2-76bf08b5a96b.png)
+
+## Sample Search Page
+![search_page](https://user-images.githubusercontent.com/30785832/36809553-37b10dcc-1c96-11e8-85b4-f95039ef77f9.png)
 
 ## Next Steps
 * Adding ability to add tags to favorite images
