@@ -49,7 +49,7 @@ router.post('/search', function(req, res){
        if(item.photos){
          if(item.photos[0].original_size){
            urlList.push(item.photos[0].original_size.url);
-         } else if(item.photos[0].alt_sizes) {
+         }else if(item.photos[0].alt_sizes[0]) {
            urlList.push(item.photos[0].alt_sizes[0].url);
          }
        }
