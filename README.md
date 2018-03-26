@@ -22,6 +22,24 @@
 * When you are thinking of ideas for your next travel adventure and would like to create a vision board to get excited and inpsired. The search uses the Tumblr API by tagged posts.
 * You already have a trip planned and would like to save ideas, packing lists, reminders in your personal notebooks.
 
+## Approach Taken
+Planned out the steps in Trello - labeled by sprint
+
+![trello_sprint1](https://user-images.githubusercontent.com/30785832/34971612-96fdf746-fa30-11e7-9e7d-46395a4bdf9a.jpg)
+
+Created wireframes with draw.io
+
+![wireframe](https://user-images.githubusercontent.com/30785832/34971640-c0460594-fa30-11e7-883f-80db10cc37e9.png)
+
+![wireframe_2](https://user-images.githubusercontent.com/30785832/34972066-e750cea0-fa33-11e7-8d9d-02ad1da15cd9.png)
+
+## Home Page
+![homepage_1](https://user-images.githubusercontent.com/30785832/36809444-f5f303e0-1c95-11e8-9c6a-89f806cb7577.png)
+![homepage_2](https://user-images.githubusercontent.com/30785832/36809862-35cb043a-1c97-11e8-8e18-598bd81666eb.png)
+
+## Sample Search Page
+![search_page](https://user-images.githubusercontent.com/30785832/36809553-37b10dcc-1c96-11e8-85b4-f95039ef77f9.png)
+
 ## Backend Routes
 METHOD | URL | Purpose
 --- | --- | ---
@@ -41,24 +59,6 @@ DELETE | /notebooks/:id | Delete a notebook in the user account
 GET | /notebooks/:id | Display a single user notebook
 GET | /notebooks/edit/:id | Display a single user notebook form to edit
 PUT | /notebooks/edit/:id | Edit a user notebook name and/or content
-
-## Approach Taken
-Planned out the steps in Trello - labeled by sprint
-
-![trello_sprint1](https://user-images.githubusercontent.com/30785832/34971612-96fdf746-fa30-11e7-9e7d-46395a4bdf9a.jpg)
-
-Created wireframes with draw.io
-
-![wireframe](https://user-images.githubusercontent.com/30785832/34971640-c0460594-fa30-11e7-883f-80db10cc37e9.png)
-
-![wireframe_2](https://user-images.githubusercontent.com/30785832/34972066-e750cea0-fa33-11e7-8d9d-02ad1da15cd9.png)
-
-## Home Page
-![homepage_1](https://user-images.githubusercontent.com/30785832/36809444-f5f303e0-1c95-11e8-9c6a-89f806cb7577.png)
-![homepage_2](https://user-images.githubusercontent.com/30785832/36809862-35cb043a-1c97-11e8-8e18-598bd81666eb.png)
-
-## Sample Search Page
-![search_page](https://user-images.githubusercontent.com/30785832/36809553-37b10dcc-1c96-11e8-85b4-f95039ef77f9.png)
 
 ## Next Steps
 * Adding ability to add tags to favorite images
