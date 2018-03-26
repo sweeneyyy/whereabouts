@@ -16,7 +16,6 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: 'Invalid credentials'
 }));
 
-
 // GET - signup route
 router.get('/signup', function(req, res){
   res.render('auth/signup');
@@ -54,12 +53,9 @@ router.post('/signup', function(req, res, next){
 
 // GET -logout route
 router.get('/logout', function(req, res){
-  // res.send('logout route coming soon!');
   req.logout();
   req.flash('success', 'Succesfully logged out');
   res.redirect('/');
 });
-
-
 
 module.exports = router;

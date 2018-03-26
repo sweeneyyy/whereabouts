@@ -24,11 +24,9 @@ $('.edit-form').click(function(e){
       }
       //if return successfully
     }).done(function(data){
-      console.log('got to the promise!');
       window.location.href = '/notebooks';
     });
 });
-
 
 //DELETE a favorite 
 $('.delete-favorite').click(function(e){
@@ -42,5 +40,4 @@ $('.delete-favorite').click(function(e){
     });
 });
 
-
-});
+}); //end document ready

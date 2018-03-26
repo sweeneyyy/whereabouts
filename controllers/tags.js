@@ -2,6 +2,7 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 
+//TODO - implement tag routes
 
 //GET - display all tags
 router.get('/', function(req, res){
@@ -26,10 +27,6 @@ router.delete('/:id', function(req, res){
   console.log('Delete route ID = ', req.params.id);
   res.send('delete tag route coming soon');
 });
-
-
-
-
 
 
 module.exports = router;

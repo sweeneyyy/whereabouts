@@ -23,7 +23,6 @@ router.get('/', isLoggedIn, function(req, res){
 //GET - display search results on search page
 router.get('/search', function(req, res){
   var results = [];
-
   res.render('favorites/search', {results: results});
 });
 
@@ -44,7 +43,6 @@ router.post('/search', function(req, res){
     searchTag = req.body.searchTag
       
   var urlList = [];
-
      data.forEach(function(item){
        if(item.photos){
          if(item.photos[0].original_size){
@@ -57,7 +55,6 @@ router.post('/search', function(req, res){
     // res.send(data)
     res.render('favorites/search', {results: urlList});
   });
-
 });
 
 //POST - add new image to favorites
