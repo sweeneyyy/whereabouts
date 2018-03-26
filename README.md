@@ -10,11 +10,12 @@
 * Have semantically clean HTML and CSS
 
 ## Technologies Used
-* HTML, CSS, Javascript
 * Node.js
 * Express
 * PostgreSQL, Sequelize
-* Bootstrap
+* jQuery and AJAX
+* Bootstrap CSS Framework
+* tumblr API
 * Live site on [Heroku](https://whereabouts-js.herokuapp.com/)
 
 ## User Stories
@@ -46,8 +47,7 @@ Created wireframes with draw.io
 * Add link to tumblr blog post along with image for user to access
 * Improve styling
 
-## Resources Used
-* tumblr api
+## Other Resources Used
 * Google fonts
 * draw.io
 * Trello
