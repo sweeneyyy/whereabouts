@@ -22,6 +22,26 @@
 * When you are thinking of ideas for your next travel adventure and would like to create a vision board to get excited and inpsired. The search uses the Tumblr API by tagged posts.
 * You already have a trip planned and would like to save ideas, packing lists, reminders in your personal notebooks.
 
+## Backend Routes
+METHOD | URL | Purpose
+--- | --- | ---
+POST | /auth/signup | Adds new user to user database
+POST | /auth/login | Authenticates login details
+POST | /auth/logout | Logs user out of account
+GET | /favorites/all | Displays users saved favorite images
+POST | /favorites/search | tumblr API call from user query to view/save images
+GET | /favorites/search | Display search results on search page
+POST | /favorites | Add a new image to user favorites
+GET | /favorites/:id | Display a single user favorite
+DELETE | /favorites/:id | Delete an image from user favorites
+GET | /notebooks/all | Display all users notebooks
+GET | /notebooks/new | Get form to create a new notebook
+POST | /notebooks | Create a new notebook in user account
+DELETE | /notebooks/:id | Delete a notebook in the user account
+GET | /notebooks/:id | Display a single user notebook
+GET | /notebooks/edit/:id | Display a single user notebook form to edit
+PUT | /notebooks/edit/:id | Edit a user notebook name and/or content
+
 ## Approach Taken
 Planned out the steps in Trello - labeled by sprint
 
