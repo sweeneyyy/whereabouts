@@ -28,6 +28,17 @@ $('.edit-form').click(function(e){
     });
 });
 
+// //ADD a Favorite - update button
+// $('.addToFavs').click(function(){
+//   var saveBtn = $(this);
+//   saveBtn.toggleClass('addToFavs');
+//   if(saveBtn.hasClass('addToFavs')){
+//     saveBtn.text('add to favorites')
+//   }else{
+//     saveBtn.text('added!');
+//   }
+// });
+
 //DELETE a favorite 
 $('.delete-favorite').click(function(e){
   e.preventDefault();
