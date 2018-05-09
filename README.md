@@ -16,7 +16,6 @@
 * jQuery and AJAX
 * Bootstrap CSS Framework
 * tumblr API
-* Live site on [Heroku](https://whereabouts-js.herokuapp.com/)
 
 ## User Stories
 * When you are thinking of ideas for your next travel adventure and would like to create a vision board to get excited and inpsired. The search uses the Tumblr API by tagged posts.
